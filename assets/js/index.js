@@ -32,17 +32,19 @@ if(window.location.pathname == "/"){
     $ondelete = $(".table tbody td a.delete");
     $ondelete.click(function(){
         var id = $(this).attr("data-id")
-
+        // console.log(id)
         var request = {
             "url" : `http://localhost:3000/api/users/${id}`,
             "method" : "DELETE"
         }
-
+        // console.log("cp1")
         if(confirm("Do you really want to delete this record?")){
+            console.log("cp1.1")
             $.ajax(request).done(function(response){
+                // console.log("cp6")
                 alert("Data Deleted Successfully!");
-                location.reload();
-            })
+            location.reload();
+         })
         }
 
     })
